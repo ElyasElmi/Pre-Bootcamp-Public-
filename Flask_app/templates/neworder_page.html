@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{f url_for('static', filename='neworder_page.css') }}">
+<title>Build Your Pizza - Northwest Pizza</title>
+<style>
+    /* Basic reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        padding: 20px;
+    }
+    .container {
+        background: #fff;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group {
+        margin-bottom: 10px;
+    }
+    label {
+        display: block;
+        margin: 5px 0;
+    }
+    input[type="radio"], input[type="number"] {
+        margin-right: 10px;
+    }
+    select, input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .btn {
+        background-color: #005f5f;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .btn:hover {
+        background-color: #004949;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Build Your Pizza</h1>
+    <form action="/orders" method="POST">
+        <!-- Method Section -->
+        <div class="form-group">
+            <label>Method:</label>
+            <label for="carry-out">
+                <input type="radio" id="carry-out" name="method" value="Carry-Out" checked> Carry-Out
+            </label>
+            <label for="delivery">
+                <input type="radio" id="delivery" name="method" value="Delivery"> Delivery
+            </label>
+        </div>
+
+        <!-- Size Section -->
+        <div class="form-group">
+            <label for="size">Select Size:</label>
+            <select id="size" name="size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large" selected>Large</option>
+            </select>
+        </div>
+
+        <!-- Crust Section -->
+        <div class="form-group">
+            <label for="crust">Select Crust:</label>
+            <select id="crust" name="crust">
+                <option value="Hand Tossed" selected>Hand Tossed</option>
+                <option value="Thin Crust">Thin Crust</option>
+                <option value="New York Style">New York Style</option>
+            </select>
+        </div>
+
+        <!-- Quantity Section -->
+        <div class="form-group">
+            <label for="quantity">Select Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+
+        <div class="form-group">
+            <label for="sauce"> Sauces: </label>
+                
+            <label for="sauce-marinara">
+                <input type="radio" id="sauce-marinara" name="sauces" value="Marinara"> Marinara
+            </label>
+            <label for="sauce-bbq">
+                <input type="radio" id="sauce-bbq" name="sauces" value="BBQ"> BBQ
+            </label>
+            <label for="sauce-alFREDO">
+                <input type="radio" id="sauce-alFREDO" name="sauces" value="Alfredo"> Alfredo
+            </label>
+            <label for="sauce-tomato">
+                <input type="radio" id="sauce-tomato" name="sauces" value="Tomato"> Tomato
+            </label>
+            <label for="sauce-garlic-parmesan">
+                <input type="radio" id="sauce-garlic-parmesan" name="sauces" value="Garlic Parmesan"> Garlic Parmesan
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="cheese"> Cheese: </label>
+            <label for="cheese-normal">
+                <input type="radio" id="cheese-normal" name="cheese" value="Normal"> Normal
+            </label>
+            <label for="cheese-extra">
+                <input type="radio" id="cheese-extra" name="cheese" value="Extra"> Extra
+            </label>
+            <label for="cheese-light">
+                <input type="radio" id="cheese-light" name="cheese" value="Light"> Light
+            </label>
+            <label for="cheese-half">
+                <input type="radio" id="cheese-half" name="cheese" value="Half"> Half
+            </label>
+            <label for="cheese-none">
+                <input type="radio" id="cheese-none" name="cheese" value="None"> None
+            </label>  
+        </div>
+
+        <!-- Meat Section -->
+        <div class="form-group">
+            <label>Meat:</label>
+            <label for="meat-chicken">
+                <input type="radio" id="meat-chicken" name="meat" value="Chicken"> Chicken
+            </label>
+            <label for="meat-beef">
+                <input type="radio" id="meat-beef" name="meat" value="Beef"> Beef
+            </label>
+            <label for="meat-ham">
+                <input type="radio" id="meat-ham" name="meat" value="Ham"> Ham
+            </label>
+            <label for="meat-salami">
+                <input type="radio" id="meat-salami" name="meat" value="Salami"> Salami
+            </label>
+            <label for="meat-sausage">
+                <input type="radio" id="meat-sausage" name="meat" value="Sausage"> Sausage
+            </label>
+            <label for="meat-bacon">
+                <input type="radio" id="meat-bacon" name="meat" value="Bacon"> Bacon
+            </label>
+            <label for="meat-none">
+                <input type="radio" id="meat-none" name="meat" value="None"> None
+            </label>
+        </div>
+
+        <!-- Vegetables Section -->
+        <div class="form-group">
+            <label>Vegetables:</label>
+            <label for="veg-onions">
+                <input type="radio" id="veg-onions" name="vegetable" value="Onions"> Onions
+            </label>
+            <label for="veg-green-peppers">
+                <input type="radio" id="veg-green-peppers" name="vegetable" value="Green Peppers"> Green Peppers
+            </label>
+            <label for="veg-tomatoes">
+                <input type="radio" id="veg-tomatoes" name="vegetable" value="Tomatoes"> Tomatoes
+            </label>
+            <label for="veg-pineaple">
+                <input type="radio" id="veg-pineaple" name="vegetable" value="Pineaple"> Pineaple
+            </label>
+            <label for="veg-olives">
+                <input type="radio" id="veg-olives" name="vegetable" value="Olives"> Olives
+            </label>
+            <label for="veg-mushrooms">
+                <input type="radio" id="veg-mushrooms" name="vegetable" value="Mushrooms"> Mushrooms
+            </label>
+            <label for="veg-spinach">
+                <input type="radio" id="veg-spinach" name="vegetable" value="Spinach"> Spinach
+            </label>
+            <label for="veg-jalapeno-peppers">
+                <input type="radio" id="veg-jalapeno-peppers" name="vegetable" value="Jalapeno Peppers"> Jalapeno Peppers
+            </label>
+            <label for="veg-none">
+                <input type="radio" id="veg-none" name="vegetable" value="None"> None
+            </label>
+        </div>
+
+        <!-- Desserts Section -->
+        <div class="form-group">
+            <label>Desserts:</label>
+            <label for="dessert-cinnamon-rolls">
+                <input type="radio" id="dessert-cinnamon-rolls" name="desert_name" value="Cinnamon Rolls"> Cinnamon Rolls
+            </label>
+            <label for="dessert-cookies">
+                <input type="radio" id="dessert-cookies" name="desert_name" value="Chocolate Chip Cookies"> Chocolate Chip Cookies
+            </label>
+            <label for="dessert-brownies">
+                <input type="radio" id="dessert-brownies" name="desert_name" value="Chocolate Brownies"> Chocolate Brownies
+            </label>
+            <label for="dessert-none">
+                <input type="radio" id="dessert-none" name="desert_name" value="None"> None
+            </label>
+            
+            <label for="desert_quantity">Desert Quantity:</label>
+            <input type="number" id="desert_quantity" name="desert_quantity">
+        </div>
+
+        <div class="form-group">
+            <label>Drinks:</label>
+            <select id="drink_name" name="drink_name">
+                <option value="Coke">Coke</option>
+            </select>
+            <select id="drink_size" name="drink_size">
+                <option value="Can">Can</option>
+                <option value="20oz">20oz</option>
+            </select>
+            <label for="drink_quantity">Desert Quantity:</label>
+            <input type="number" id="drink_quantity" name="drink_quantity">
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Place Order" class="btn">
+    </form>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Northwest Pizza</title>
+<style>
+    /* Add your CSS styles here */
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        padding: 20px;
+    }
+    header {
+        background-color: #eee;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .logo {
+        width: 200px;
+        height: 60px;
+        /* Replace with your logo path */
+        background-image: url('logo-placeholder.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+    }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease;
+    }
+    .navbar a:hover {
+        background-color: #555;
+    }
+    .container {
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        padding: 20px;
+        margin: auto;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .order-summary {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .order-item {
+        margin-bottom: 10px;
+    }
+    .total-line {
+        font-weight: bold;
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #5cb85c;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .btn-danger {
+        background-color: #d9534f;
+    }
+</style>
+</head>
+<body>
+
+<header class="logo"></header>
+
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Check out(2)</a>
+    <a href="#">Account</a>
+    <a href="#">Log out</a>
+</div>
+
+<div class="container">
+    <h1>My Order</h1>
+    <div class="order-summary">
+        <div class="order-item">
+            <strong>Method:</strong> {{order.method}}
+        </div>
+        <div class="order-item">
+            <strong>Size:</strong> {{order.size}} <strong>Qty:</strong> {{order.quantity}}
+        </div>
+        <div class="order-item">
+            <strong>Qty:</strong> {{order.quantity}}
+        </div>
+        <div class="order-item">
+            <strong>Crust:</strong> {{order.crust}}
+        </div>
+        <div class="order-item">
+            <strong>Toppings:</strong> {{order.toppings}}
+        </div>
+        <div class="order-item">
+            <strong>Sauce:</strong> {{order.sauces}}
+        </div>
+        <div class="order-item">
+            <strong>Drink:</strong> {{order.drinks}}
+        </div>
+        <div class="total-line">
+            <strong>Price:</strong> {{order.price}}
+        </div>
+    </div>
+    <a href="#" class="btn btn-danger">Cancel</a>
+    <a href="#" class="btn">Purchase</a>
+</div>
+
+</body>
+</html>
